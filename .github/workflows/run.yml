@@ -1,0 +1,30 @@
+name: Run
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Run
+        run: |
+          yarn sio \
+          --url $SUPABASE_PROJECT_URL \
+          --key $SUPABASE_SERVICE_ROLE_KEY \
+          --bucket images \
+          --folder public \
+          --max 20 \
+        env:
+          SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

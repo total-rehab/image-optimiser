@@ -1,0 +1,12 @@
+{
+  "name": "total-rehab-image-convertor",
+  "version": "1.0.0",
+  "description": "Runs the `supabase-image-optimiser` script on a schedule.",
+  "private": true,
+  "author": "Alex Mendes",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "dependencies": {
+    "supabase-image-optimiser": "^1.0.0"
+  }
+}
