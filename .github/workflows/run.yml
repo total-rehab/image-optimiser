@@ -24,7 +24,7 @@ jobs:
           --key $SUPABASE_SERVICE_ROLE_KEY \
           --bucket images \
           --folder public \
-          --max 20 \
+          --max 100 \
         env:
           SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
